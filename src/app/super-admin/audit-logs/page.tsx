@@ -20,7 +20,7 @@ export default function AuditLogsPage() {
       header: "Action",
       cell: (row: any) => (
         <div className="flex items-center gap-3">
-          <div className="h-8 w-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600">
+          <div className="h-8 w-8 rounded-lg bg-slate-700/50 flex items-center justify-center text-gray-400">
             <FileText className="h-4 w-4" />
           </div>
           <Badge variant="outline" className="font-mono">{row.action}</Badge>
@@ -32,8 +32,8 @@ export default function AuditLogsPage() {
       header: "Performed By",
       cell: (row: any) => (
         <div className="flex items-center gap-2">
-          <User className="h-3 w-3 text-muted-foreground" />
-          <span className="text-sm font-medium">{row.user}</span>
+          <User className="h-3 w-3 text-gray-400" />
+          <span className="text-sm font-medium text-white">{row.user}</span>
         </div>
       )
     },

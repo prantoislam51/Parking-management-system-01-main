@@ -74,8 +74,8 @@ export default function UsersPage() {
           <div className="flex items-center gap-3">
             <Avatar firstName={user.first_name} lastName={user.last_name} size="sm" />
             <div>
-              <p className="font-bold">{user.first_name} {user.last_name}</p>
-              <p className="text-xs text-muted-foreground">{user.user_type === 'owner' ? 'Zone Owner' : 'Driver'}</p>
+              <p className="font-bold text-white">{user.first_name} {user.last_name}</p>
+              <p className="text-xs text-gray-500">{user.user_type === 'owner' ? 'Zone Owner' : 'Driver'}</p>
             </div>
           </div>
         );
@@ -102,13 +102,13 @@ export default function UsersPage() {
         const user = row as RegularUser;
         return (
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-blue-50 hover:text-blue-500" onClick={() => handleEdit(user)}>
+            <Button variant="ghost" size="icon" className="h-8 w-8 text-indigo-400 hover:bg-slate-700" onClick={() => handleEdit(user)}>
               <Edit className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="icon" className="h-8 w-8 text-amber-600 hover:bg-amber-50 hover:text-amber-700" onClick={() => handleBan(user)}>
+            <Button variant="ghost" size="icon" className="h-8 w-8 text-amber-400 hover:bg-slate-700" onClick={() => handleBan(user)}>
               <Ban className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive hover:bg-red-50 hover:text-red-500" onClick={() => handleDelete(user)}>
+            <Button variant="ghost" size="icon" className="h-8 w-8 text-red-400 hover:bg-slate-700" onClick={() => handleDelete(user)}>
               <Trash2 className="h-4 w-4" />
             </Button>
           </div>

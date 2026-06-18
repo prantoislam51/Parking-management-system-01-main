@@ -20,10 +20,10 @@ export default function PaymentsPage() {
       header: "Transaction ID",
       cell: (row: any) => (
         <div className="flex items-center gap-3">
-          <div className="h-9 w-9 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600">
+          <div className="h-9 w-9 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400">
             <CreditCard className="h-5 w-5" />
           </div>
-          <span className="font-mono text-sm font-bold">{row.transaction_id || "N/A"}</span>
+          <span className="font-mono text-sm font-bold text-white">{row.transaction_id || "N/A"}</span>
         </div>
       ),
     },
@@ -66,7 +66,7 @@ export default function PaymentsPage() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-8 w-8 text-primary"
+            className="h-8 w-8 text-indigo-400 hover:bg-slate-700"
             onClick={() => {
               setSelectedPayment(row);
               setIsDetailModalOpen(true);
@@ -79,7 +79,7 @@ export default function PaymentsPage() {
               Verify
             </Button>
           ) : (
-            <div className="flex items-center gap-1 text-emerald-600 text-xs font-bold px-2">
+            <div className="flex items-center gap-1 text-emerald-400 text-xs font-bold px-2">
               <CheckCircle2 className="h-4 w-4" />
               Verified
             </div>

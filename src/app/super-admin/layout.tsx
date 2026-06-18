@@ -30,6 +30,8 @@ import {
 import { cn } from "@/lib/utils";
 import type { Notification } from "@/lib/types";
 import { useHasHydrated } from "@/lib/hooks/use-has-hydrated";
+import { isSupabaseConfigured } from "@/lib/data/use-mock-data";
+import { mockNotifications } from "@/lib/data";
 
 const navigation = [
   { name: "Dashboard", href: "/super-admin/dashboard", icon: LayoutDashboard, color: "text-emerald-400" },
@@ -87,25 +89,34 @@ export default function SuperAdminLayout({
       try {
         if (!user?.id) return;
 
-        const supabase = createClient();
-        const { data, error } = await supabase
-          .from("notifications")
-          .select("*")
-          .eq("user_id", user.id)
-          .order("created_at", { ascending: false })
-          .limit(10);
+        if (isSupabaseConfigured()) {
+          const supabase = createClient();
+          const { data, error } = await supabase
+            .from("notifications")
+            .select("*")
+            .eq("user_id", user.id)
+            .order("created_at", { ascending: false })
+            .limit(10);
 
-        if (error) {
-          console.error("Failed to fetch notifications:", error.message);
-          return;
-        }
+          if (error) {
+            console.error("Failed to fetch notifications:", error.message);
+            return;
+          }
 
-        if (data) {
-          setNotifications(data as Notification[]);
-          setUnreadCount(data.filter((n: Notification) => !n.is_read).length);
+          if (data) {
+            setNotifications(data as Notification[]);
+            setUnreadCount(data.filter((n: Notification) => !n.is_read).length);
+          }
+        } else {
+          // Use mock data
+          setNotifications(mockNotifications as Notification[]);
+          setUnreadCount(mockNotifications.filter((n) => !n.is_read).length);
         }
       } catch (err) {
         console.error("Error fetching notifications:", err);
+        // Fallback to mock data on error
+        setNotifications(mockNotifications as Notification[]);
+        setUnreadCount(mockNotifications.filter((n) => !n.is_read).length);
       }
     };
 

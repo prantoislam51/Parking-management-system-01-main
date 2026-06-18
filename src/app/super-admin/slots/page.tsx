@@ -66,12 +66,12 @@ export default function SlotsPage() {
       header: "Slot Info",
       cell: (row: Slot) => (
         <div className="flex items-center gap-3">
-          <div className="h-9 w-9 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600">
+          <div className="h-9 w-9 rounded-lg bg-slate-700/50 flex items-center justify-center text-gray-400">
             {getIcon(row.slot_type)}
           </div>
           <div>
-            <p className="font-bold">{row.slot_number}</p>
-            <p className="text-[10px] text-muted-foreground uppercase tracking-widest">{row.unique_slot_id}</p>
+            <p className="font-bold text-white">{row.slot_number}</p>
+            <p className="text-[10px] text-gray-500 uppercase tracking-widest">{row.unique_slot_id}</p>
           </div>
         </div>
       ),
@@ -115,7 +115,7 @@ export default function SlotsPage() {
           <Button
             variant="ghost"
             size="icon"
-            className="h-8 w-8 text-primary hover:bg-primary/10"
+            className="h-8 w-8 text-indigo-400 hover:bg-slate-700"
             onClick={() => {
               setSelectedSlot(row);
               setIsDetailModalOpen(true);
@@ -123,10 +123,10 @@ export default function SlotsPage() {
           >
             <Eye className="h-4 w-4" />
           </Button>
-          <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-blue-50 hover:text-blue-500" onClick={() => handleEdit(row)}>
+          <Button variant="ghost" size="icon" className="h-8 w-8 text-indigo-400 hover:bg-slate-700" onClick={() => handleEdit(row)}>
             <Edit className="h-4 w-4" />
           </Button>
-          <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive hover:bg-red-50 hover:text-red-500" onClick={() => handleDelete(row)}>
+          <Button variant="ghost" size="icon" className="h-8 w-8 text-red-400 hover:bg-slate-700" onClick={() => handleDelete(row)}>
             <Trash2 className="h-4 w-4" />
           </Button>
         </div>

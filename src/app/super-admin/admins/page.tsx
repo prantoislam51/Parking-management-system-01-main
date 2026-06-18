@@ -61,8 +61,8 @@ export default function AdminsPage() {
           <div className="flex items-center gap-3">
             <Avatar firstName={admin.first_name} lastName={admin.last_name} size="sm" />
             <div>
-              <p className="font-bold">{admin.first_name} {admin.last_name}</p>
-              <p className="text-xs text-muted-foreground">@{admin.username}</p>
+              <p className="font-bold text-white">{admin.first_name} {admin.last_name}</p>
+              <p className="text-xs text-gray-500">@{admin.username}</p>
             </div>
           </div>
         );
@@ -90,10 +90,10 @@ export default function AdminsPage() {
         const admin = row as AdminUser;
         return (
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-blue-50 hover:text-blue-500" onClick={() => handleEdit(admin)}>
+            <Button variant="ghost" size="icon" className="h-8 w-8 text-indigo-400 hover:bg-slate-700" onClick={() => handleEdit(admin)}>
               <Edit className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive hover:bg-red-50 hover:text-red-500" onClick={() => handleDelete(admin)}>
+            <Button variant="ghost" size="icon" className="h-8 w-8 text-red-400 hover:bg-slate-700" onClick={() => handleDelete(admin)}>
               <Trash2 className="h-4 w-4" />
             </Button>
           </div>

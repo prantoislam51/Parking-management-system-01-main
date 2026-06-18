@@ -54,12 +54,12 @@ export default function ZonesPage() {
       header: "Zone Name",
       cell: (row: Zone) => (
         <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+          <div className="h-10 w-10 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400">
             <Building2 className="h-5 w-5" />
           </div>
           <div>
-            <p className="font-bold">{row.zone_name}</p>
-            <p className="text-xs text-muted-foreground">{row.zone_code}</p>
+            <p className="font-bold text-white">{row.zone_name}</p>
+            <p className="text-xs text-gray-500">{row.zone_code}</p>
           </div>
         </div>
       ),
@@ -70,7 +70,7 @@ export default function ZonesPage() {
       cell: (row: Zone) => {
         const area = mockAreas.find(a => a.id === row.area_id);
         return (
-          <div className="flex items-center gap-1 text-muted-foreground">
+          <div className="flex items-center gap-1 text-gray-400">
             <MapPin className="h-3 w-3" />
             <span className="text-xs">{area?.name || "Unknown"}</span>
           </div>
@@ -100,10 +100,10 @@ export default function ZonesPage() {
       header: "Actions",
       cell: (row: Zone) => (
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-blue-50 hover:text-blue-500" onClick={() => handleEdit(row)}>
+          <Button variant="ghost" size="icon" className="h-8 w-8 text-indigo-400 hover:bg-slate-700" onClick={() => handleEdit(row)}>
             <Edit className="h-4 w-4" />
           </Button>
-          <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive hover:bg-red-50 hover:text-red-500" onClick={() => handleDelete(row)}>
+          <Button variant="ghost" size="icon" className="h-8 w-8 text-red-400 hover:bg-slate-700" onClick={() => handleDelete(row)}>
             <Trash2 className="h-4 w-4" />
           </Button>
         </div>

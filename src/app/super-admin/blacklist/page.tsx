@@ -17,12 +17,12 @@ export default function BlacklistPage() {
       header: "User",
       cell: (row: any) => (
         <div className="flex items-center gap-3">
-          <div className="h-9 w-9 rounded-full bg-destructive/10 flex items-center justify-center text-destructive">
+          <div className="h-9 w-9 rounded-full bg-red-500/20 flex items-center justify-center text-red-400">
             <ShieldAlert className="h-5 w-5" />
           </div>
           <div>
-            <p className="font-bold">{row.first_name} {row.last_name}</p>
-            <p className="text-xs text-muted-foreground">{row.email}</p>
+            <p className="font-bold text-white">{row.first_name} {row.last_name}</p>
+            <p className="text-xs text-gray-500">{row.email}</p>
           </div>
         </div>
       ),
@@ -38,11 +38,11 @@ export default function BlacklistPage() {
       header: "Actions",
       cell: () => (
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" className="h-8 border-destructive/20 text-destructive hover:bg-destructive/10">
+          <Button variant="outline" size="sm" className="h-8 border-red-500/30 text-red-400 hover:bg-slate-700">
             <UserMinus className="h-4 w-4 mr-1" />
             Ban Permanently
           </Button>
-          <Button variant="ghost" size="sm" className="h-8 text-primary">
+          <Button variant="ghost" size="sm" className="h-8 text-indigo-400 hover:bg-slate-700">
             <RotateCcw className="h-4 w-4 mr-1" />
             Reactivate
           </Button>

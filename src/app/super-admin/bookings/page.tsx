@@ -20,12 +20,12 @@ export default function BookingsPage() {
       header: "Booking",
       cell: (row: any) => (
         <div className="flex items-center gap-3">
-          <div className="h-10 w-10 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-600">
+          <div className="h-10 w-10 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400">
             <Calendar className="h-5 w-5" />
           </div>
           <div>
-            <p className="font-bold">{row.booking_code}</p>
-            <p className="text-xs text-muted-foreground">{new Date(row.created_at).toLocaleDateString()}</p>
+            <p className="font-bold text-white">{row.booking_code}</p>
+            <p className="text-xs text-gray-500">{new Date(row.created_at).toLocaleDateString()}</p>
           </div>
         </div>
       ),
@@ -69,7 +69,7 @@ export default function BookingsPage() {
           <Button 
             variant="ghost" 
             size="icon" 
-            className="h-8 w-8 text-primary"
+            className="h-8 w-8 text-indigo-400 hover:bg-slate-700"
             onClick={() => {
               setSelectedBooking(row);
               setIsDetailModalOpen(true);
@@ -77,7 +77,7 @@ export default function BookingsPage() {
           >
             <Eye className="h-4 w-4" />
           </Button>
-          <Button variant="ghost" size="icon" className="h-8 w-8">
+          <Button variant="ghost" size="icon" className="h-8 w-8 text-gray-400 hover:bg-slate-700">
             <MoreHorizontal className="h-4 w-4" />
           </Button>
         </div>

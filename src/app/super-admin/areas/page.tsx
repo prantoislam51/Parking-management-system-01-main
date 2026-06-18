@@ -50,10 +50,10 @@ export default function AreasPage() {
       header: "Area Name",
       cell: (row: Area) => (
         <div className="flex items-center gap-3">
-          <div className="h-8 w-8 rounded-lg bg-rose-500/10 flex items-center justify-center text-rose-600">
+          <div className="h-8 w-8 rounded-lg bg-rose-500/20 flex items-center justify-center text-rose-400">
             <MapPin className="h-4 w-4" />
           </div>
-          <span className="font-bold">{row.name}</span>
+          <span className="font-bold text-white">{row.name}</span>
         </div>
       ),
     },
@@ -71,10 +71,10 @@ export default function AreasPage() {
       header: "Actions",
       cell: (row: Area) => (
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-blue-50 hover:text-blue-500" onClick={() => handleEdit(row)}>
+          <Button variant="ghost" size="icon" className="h-8 w-8 text-indigo-400 hover:bg-slate-700" onClick={() => handleEdit(row)}>
             <Edit className="h-4 w-4" />
           </Button>
-          <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive hover:bg-red-50 hover:text-red-500" onClick={() => handleDelete(row)}>
+          <Button variant="ghost" size="icon" className="h-8 w-8 text-red-400 hover:bg-slate-700" onClick={() => handleDelete(row)}>
             <Trash2 className="h-4 w-4" />
           </Button>
         </div>

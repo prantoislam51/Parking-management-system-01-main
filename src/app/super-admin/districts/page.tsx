@@ -50,10 +50,10 @@ export default function DistrictsPage() {
       header: "District Name",
       cell: (row: District) => (
         <div className="flex items-center gap-3">
-          <div className="h-8 w-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600">
+          <div className="h-8 w-8 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400">
             <Building2 className="h-4 w-4" />
           </div>
-          <span className="font-bold">{row.name}</span>
+          <span className="font-bold text-white">{row.name}</span>
         </div>
       ),
     },
@@ -71,10 +71,10 @@ export default function DistrictsPage() {
       header: "Actions",
       cell: (row: District) => (
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" className="h-8 w-8 hover:bg-blue-50 hover:text-blue-500" onClick={() => handleEdit(row)}>
+          <Button variant="ghost" size="icon" className="h-8 w-8 text-indigo-400 hover:bg-slate-700" onClick={() => handleEdit(row)}>
             <Edit className="h-4 w-4" />
           </Button>
-          <Button variant="ghost" size="icon" className="h-8 w-8 text-destructive hover:bg-red-50 hover:text-red-500" onClick={() => handleDelete(row)}>
+          <Button variant="ghost" size="icon" className="h-8 w-8 text-red-400 hover:bg-slate-700" onClick={() => handleDelete(row)}>
             <Trash2 className="h-4 w-4" />
           </Button>
         </div>
